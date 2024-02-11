@@ -1,6 +1,6 @@
 import { createElement } from './manipulationDomMethods';
-import { changeLocation } from './utils';
-import { navigator } from './navigation';
+ import { changeLocation } from './utils';
+/* import { navigator } from './navigation' */; 
 
 const API_KEY = '9c3b989e925346e1d15585302f9d420e';
 const TRENDING_MOVIES_URL = `/trending/movie/day` 
@@ -19,7 +19,7 @@ const trendingViewMoreButton = document.getElementById('trending-movie-list-butt
 const trendingMovieTitle = document.querySelector('.trending-movie-title');
 const genreTitle = document.querySelector('.genre-movie-title')
 
-export async function getTrendingMovies(){
+export async function getTrendingMovies(rootElement){
   
     const { data } = await api(TRENDING_MOVIES_URL);
     const movies = data.results
@@ -34,11 +34,11 @@ export async function getTrendingMovies(){
         const text = document.createTextNode(item.title)
         const p = createElement('p', {class:'movie-title'}, text)
         const li = createElement('li', {class:'movie-container'}, img, p)
-        trendingMovieList.appendChild(li)
+        rootElement.appendChild(li)
     })
 }
 
-export async function getGenreMovies(){
+/* export async function getGenreMovies(){
     const { data } = await api(MOVIE_CATEGORIES_URL);
     const genres = data.genres
     
@@ -53,21 +53,20 @@ export async function getGenreMovies(){
         genreMovieList.appendChild(li)
     }) 
 }
-
+ */
 //Events
 
-trendingViewMoreButton.addEventListener('click', ()=>{//trending section
+/* trendingViewMoreButton.addEventListener('click', ()=>{//trending section
     changeLocation('trending')
-})
+}) */
 
-trendingMovieTitle.addEventListener('click', () => {// home section
+/* trendingMovieTitle.addEventListener('click', () => {// home section
     changeLocation('')
 })
 
 genreTitle.addEventListener('click', () => {
     changeLocation('')
 })
+ */
 
-getTrendingMovies() 
-getGenreMovies()
 

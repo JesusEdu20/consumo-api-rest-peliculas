@@ -3,15 +3,19 @@ export function createElement (tag, attributes, ...childElement){
     
     if(attributes){
         for(const attribute in attributes){
-            if(attribute !== "class"){
-                
-                elem.setAttribute(attribute, attributes[attribute])
+           
+            if(attribute === 'text') {
+               const text = document.createTextNode(attributes[attribute])
+               elem.appendChild(text)
             }
-            else {
+            else if(attribute === 'class'){
                 const classArray = attributes[attribute].split(' ')
                 classArray.forEach(item => {
                     elem.classList.add(item)
-                })   
+                }) 
+            }
+             else{
+                elem.setAttribute(attribute, attributes[attribute])
             }
         }
     }
