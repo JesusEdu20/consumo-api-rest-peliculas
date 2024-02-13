@@ -1,14 +1,11 @@
 
 import { createElement } from "./manipulationDomMethods"; 
 import { genres } from "./pages/genres";
-//pages
-/* import { genres } from "./pages/genres"; */
-/* import { home } from "./pages/home"; */
 
 
 const root = document.getElementById('app');
 let page = null;
-/* let test = [] */
+
 
 
 
@@ -16,8 +13,16 @@ let page = null;
 export async function navigator () {
     
     const hash = location.hash
-    if(hash.startsWith('#trending')){
-       page = 'trend'
+    if(hash.startsWith('#trending')){//view more trending movies
+
+        root.innerHTML = ''
+        const { trending } = await import("./pages/trendingMovies.js")
+        const { node, services } = await trending()
+        root.appendChild(node)
+
+        services.forEach(element => {
+            element()
+        });
     }
     else if(hash.startsWith('#genre')){
         root.innerHTML = ''
@@ -25,9 +30,9 @@ export async function navigator () {
         const { node, services } = await genres()
         root.appendChild(node)
 
-        /* services.forEach(element => {
+        services.forEach(element => {
             element()
-        }); */
+        });
         
     }
     else{
@@ -37,7 +42,6 @@ export async function navigator () {
         const {node, services } = await home()
         root.appendChild(node)
 
-         //SERVICEs
          services.forEach(element => {
             element()
         });
@@ -45,9 +49,6 @@ export async function navigator () {
 }
 
 //RENDER
-
-
-
 
 navigator()
 window.addEventListener('hashchange', navigator);

@@ -9,3 +9,4 @@ export const api = new axios.create({
     headers: {'Content-Type': 'application/json;charset=utf-8'},
     params : { 'api_key' : API_KEY } 
 })
+

@@ -3,10 +3,9 @@ import { createElement } from "./manipulationDomMethods";
 import { changeLocation } from './utils';
 const { TRENDING_MOVIES_URL, MOVIE_CATEGORIES_URL } = urls //endpoints
 
-export async function sendTrendingMovies(rootElement){
-    const { data } = await api(TRENDING_MOVIES_URL);
+export async function sendTrendingMovies(rootElement, numPage = 1){
+    const { data } = await api(`${TRENDING_MOVIES_URL}?page=${numPage}`);
     const movies = data.results
-    
     movies.forEach(item => {
         
         const img = createElement('img', {
@@ -37,7 +36,7 @@ export async function sendGenreMovies(rootElement){
     }) 
 }
 
-export async function sendMoviesByGenre (id){
+export async function sendMoviesByGenre (id, rootElement){
     const list = document.createElement('ul')
     list.classList.add('movies-by-genre')
     const { data } = await api('discover/movie', {
@@ -56,5 +55,5 @@ export async function sendMoviesByGenre (id){
     });
     
     const genreMovieSection = document.querySelector('.genre-movie-section')
-    genreMovieSection.appendChild(list)
+    rootElement.appendChild(list)
 }

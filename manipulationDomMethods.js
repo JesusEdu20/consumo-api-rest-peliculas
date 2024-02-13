@@ -14,7 +14,11 @@ export function createElement (tag, attributes, ...childElement){
                     elem.classList.add(item)
                 }) 
             }
-             else{
+            else if(attribute.startsWith('on')){
+                const eventHandler = attributes[attribute]  
+                elem[attribute] = eventHandler  
+            }
+            else{
                 elem.setAttribute(attribute, attributes[attribute])
             }
         }
