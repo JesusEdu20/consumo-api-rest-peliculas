@@ -3,6 +3,8 @@ import { changeLocation } from "../utils"
 import { sendTrendingMovies } from "../service"
 
 //NODES
+///////////////////////////////////////////////////////////////////////////////
+//HTML
 const section = createElement('section', {
     id:'trending-section',
     class : 'trending-movie-section'},
@@ -17,7 +19,7 @@ const section = createElement('section', {
     ),
 ) 
 ////////////////////////////////////////////////////////////////////////////////////////
-//page state
+// Estate
 const pagesValue = () => {
     const page = [1, 2]
     function increment (){
@@ -40,6 +42,7 @@ const pagesValue = () => {
 
 const { increment, decrement, page } = pagesValue()
 
+//HTML
 const viwMoreTrendingMovies = createElement('div', {},
  createElement('h1', {text:'Trending movies'}),
  createElement('div', {class:'view-more-trending-button__container'},
