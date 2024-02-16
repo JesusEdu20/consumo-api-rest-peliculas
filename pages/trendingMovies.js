@@ -1,5 +1,4 @@
-/* import { trendingMovieSection } from "../sections/trendingMovieSection"
-import { genreMovieSection } from "../sections/genreMovieSection" */
+
 import { createElement } from "../manipulationDomMethods"
 
 export async function trending () {

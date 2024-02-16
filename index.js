@@ -31,6 +31,13 @@ export async function navigator () {
         });
         
     }
+    else if(hash.startsWith('#search')){
+        root.innerHTML = ''
+        const { search } = await import("./pages/search.js")
+        const { node, services } = await search()
+        root.appendChild(node)
+        
+    }
     else{
        root.innerHTML = ''
       

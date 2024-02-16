@@ -16,7 +16,8 @@ export function createElement (tag, attributes, ...childElement){
             }
             else if(attribute.startsWith('on')){
                 const eventHandler = attributes[attribute]  
-                elem[attribute] = eventHandler  
+                const event = attribute.slice(2)
+                elem.addEventListener(event, eventHandler)
             }
             else{
                 elem.setAttribute(attribute, attributes[attribute])
