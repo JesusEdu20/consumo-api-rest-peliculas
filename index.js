@@ -4,10 +4,6 @@ import { genres } from "./pages/genres";
 
 
 const root = document.getElementById('app');
-let page = null;
-
-
-
 
 //NAVIGATOR
 export async function navigator () {
