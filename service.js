@@ -12,13 +12,18 @@ export async function sendTrendingMovies(rootElement, numPage = 1){
             class:'movie-img',
             src:`https://image.tmdb.org/t/p/w300/${item.poster_path}`
         })
-        /* console.log(item) */
+       
         const text = document.createTextNode(item.title)
-        const p = createElement('p', {class:'movie-title'}, text)
-        const li = createElement('li', {class:'movie-container'}, img, p)
+        
+        const li = createElement('li', {class:'movie-container', onclick:()=>{changeLocation(`movie=${item.id}`)}}, img,
+         createElement('div', null, 
+            createElement('p', {class:'movie-title', text:item.title})
+         ))
         rootElement.appendChild(li)
     })
 }
+
+
 
 export async function sendGenreMovies(rootElement){
     const { data } = await api(MOVIE_CATEGORIES_URL);
@@ -49,7 +54,11 @@ export async function sendMoviesByGenre (id, rootElement){
         const img = document.createElement('img')
         img.src = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
         const id = getHashValue()
-        const li = document.createElement('li', {onclick:()=>{changeLocation(`movie=${getHashValue()}`)}})
+        const li = createElement('li', {onclick:()=>{changeLocation(`movie=${movie.id}`)}}, 
+            createElement('div', null, 
+                createElement('p', {text:movie.title})
+            )
+        )
         
         li.appendChild(img)
         list.appendChild(li)

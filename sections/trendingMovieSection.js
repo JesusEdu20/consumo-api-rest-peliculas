@@ -44,7 +44,7 @@ const { increment, decrement, page } = pagesValue()
 
 //HTML
 const viwMoreTrendingMovies = createElement('div', {},
- createElement('h1', {text:'Trending movies'}),
+ createElement('h1', {text:'Trending movies', onclick:()=>{window.history.back()}}),
  createElement('div', {class:'view-more-trending-button__container'},
     createElement('button', {text:'<', onclick:()=> {
         const trendingList = document.querySelector('.view-more-trending-movies')

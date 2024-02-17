@@ -1,5 +1,6 @@
 import { createElement } from "../manipulationDomMethods";
 import { sendGenreMovies, sendMoviesByGenre } from "../service";
+import { changeLocation } from "../utils";
 
 function getDataFromHash(data){
     const hashValue = window.location.hash
@@ -28,7 +29,7 @@ const section = createElement('section', {
     )
 
 const listPreview = createElement('div', {class: 'list-movie-by-genre-preview__container'}, 
-    createElement('h1', {class:'list-movie-by-genre__title'}),
+    createElement('h1', {class:'list-movie-by-genre__title', onclick:()=>{window.history.back()}}),
     createElement('div', { class:'list-movie-by-genre-preview'})
 )
 

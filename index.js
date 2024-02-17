@@ -43,7 +43,6 @@ export async function navigator () {
         root.innerHTML = ''
         const { movieView } = await import("./pages/movieView.js")
         const {node, services} = await movieView()
-        console.log(node)
         root.appendChild(node)
         
         services.forEach(element => {
