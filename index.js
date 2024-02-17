@@ -1,9 +1,4 @@
 
-import { createElement } from "./manipulationDomMethods"; 
-import { genres } from "./pages/genres";
-/* import { movieView } from "./sections/movieView.js"; */
-
-
 const root = document.getElementById('app');
 
 //NAVIGATOR
