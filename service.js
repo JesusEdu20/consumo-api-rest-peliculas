@@ -1,6 +1,6 @@
 import { api, urls } from "./api";
 import { createElement } from "./manipulationDomMethods";
-import { changeLocation } from './utils';
+import { changeLocation, getHashValue } from './utils';
 const { TRENDING_MOVIES_URL, MOVIE_CATEGORIES_URL } = urls //endpoints
 
 export async function sendTrendingMovies(rootElement, numPage = 1){
@@ -48,7 +48,8 @@ export async function sendMoviesByGenre (id, rootElement){
     movies.forEach(movie => {
         const img = document.createElement('img')
         img.src = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-        const li = document.createElement('li')
+        const id = getHashValue()
+        const li = document.createElement('li', {onclick:()=>{changeLocation(`movie=${getHashValue()}`)}})
         
         li.appendChild(img)
         list.appendChild(li)

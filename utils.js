@@ -8,6 +8,12 @@ export function changeLocation(hash, value){
     window.location.hash = hash
 }
 
+export function getHashValue (){
+    const hash = window.location.hash
+    const [_, value] = hash.split('=')
+    return value
+}
+
 export const $ = (id, action)=> {
     
     const element = document.getElementById(id)
@@ -66,3 +72,5 @@ export class View {
         hiddenElements.forEach(elem => elem.style.display = display);
     }
 }
+
+

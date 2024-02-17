@@ -1,6 +1,7 @@
 
 import { createElement } from "./manipulationDomMethods"; 
 import { genres } from "./pages/genres";
+/* import { movieView } from "./sections/movieView.js"; */
 
 
 const root = document.getElementById('app');
@@ -38,6 +39,18 @@ export async function navigator () {
         root.appendChild(node)
         
     }
+    else if(hash.startsWith('#movie')){
+        root.innerHTML = ''
+        const { movieView } = await import("./pages/movieView.js")
+        const {node, services} = await movieView()
+        console.log(node)
+        root.appendChild(node)
+        
+        services.forEach(element => {
+            element()
+        });
+    }
+
     else{
        root.innerHTML = ''
       

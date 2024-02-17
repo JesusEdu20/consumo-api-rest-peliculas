@@ -1,9 +1,6 @@
 import { createElement } from "../manipulationDomMethods";
-import { sendGenreMovies, sendMoviesByGenre } from "../service";
 import { changeLocation } from "../utils"; 
 import { api } from "../api";
-
-
 
 function searchBar(){
     let titleMovie = 'Avengers'
@@ -19,8 +16,12 @@ function searchBar(){
         list.innerHTML = ''
         data.map(movie => {
             list.appendChild(
-                createElement('li', null,
-                    createElement('img', { src: `https://image.tmdb.org/t/p/w300${movie.poster_path}`})
+                createElement('li', {onclick: ()=> changeLocation(`movie=${movie.id}`)},
+                    createElement('img', { src: `https://image.tmdb.org/t/p/w300${movie.poster_path}`}),
+                    createElement('div', {class:'item-movie-title__container'}, 
+                        createElement('p', { text:movie.title })
+                    )
+                    
                 )
             )
         })
