@@ -459,6 +459,66 @@ h1{
   background-color: rgba(63, 61, 61, 0.712);
 }
 
+.movie-view-skeleton{
+  padding: 0 0 20px;
+  overflow: hidden;
+  .movie-view-img__container{
+    background-color: rgba(117, 113, 113, 0.712);
+    backdrop-filter: unset;
+  }
+  h2{
+    overflow: hidden;
+    width: 80%;
+    height: 20px;
+    border-radius: 8px;
+    background-color: rgba(117, 113, 113, 0.712);
+  }
+  h2::after{
+    width: 100%;
+    height: 20px;
+    content: '';
+    position: absolute;
+    background: linear-gradient(90deg, rgba(0,0,0,0), rgba(255,255,255,0.15), rgba(0,0,0,0));
+    transform: translateX(-100%);
+    animation: loading 1.5s infinite;
+  }
+  ul{
+    overflow: hidden;
+    height: 160px;
+    border-radius: 8px;
+    background-color: rgba(117, 113, 113, 0.712);
+  }
+  ul::after{
+    width: 100%;
+    height: 160px;
+    border-radius: 8px;
+    background-color: rgba(117, 113, 113, 0.712);
+    content: '';
+    position: absolute;
+    background: linear-gradient(90deg, rgba(0,0,0,0), rgba(255,255,255,0.15), rgba(0,0,0,0));
+    transform: translateX(-100%);
+    animation: loading 1.5s infinite;
+  }
+  button{
+    display: none;
+  }
+}
+.movie-view-skeleton::after{
+  width: 100%;
+  height: 100%;
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, rgba(0,0,0,0), rgba(255,255,255,0.15), rgba(0,0,0,0));
+  transform: translateX(-100%);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 .movies-related__container{
   
   ul{

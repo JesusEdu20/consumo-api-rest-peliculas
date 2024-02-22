@@ -35,11 +35,11 @@ export async function navigator () {
         
     }
     else if(hash.startsWith('#movie')){
+       
         root.innerHTML = ''
         const { movieView } = await import("./pages/movieView.js")
         const {node, services} = await movieView()
         root.appendChild(node)
-        
         services.forEach(element => {
             element()
         });

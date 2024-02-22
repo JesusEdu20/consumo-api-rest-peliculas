@@ -11,7 +11,7 @@ export async function movieView () {
     const [ searchNode] = searchModule.searchBarSection() //component
     const [ trendingNode, trendingService ] = trendModule.trendingMovieSection()//with service
     const [ genreNode, genreService ] = genModule.genreMovieSection()// with service
-    const [ movieNode, movieService ] = movieModule.movieViewSection() 
+    const [ movieNode, movieService, skeletonNode ] = movieModule.movieViewSection() 
     
     const background = createElement('div', { class:'movie-view-background'} )
 
@@ -21,6 +21,7 @@ export async function movieView () {
   
     const container = createElement('div', { class : "movie-view-window" }, 
         movieNode,
+        skeletonNode,
         searchNode, 
         trendingNode, 
         genreNode,

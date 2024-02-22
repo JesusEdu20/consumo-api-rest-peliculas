@@ -45,6 +45,8 @@ async function getDetails(){
         )
     })
 
+    const content = document.querySelector('.movie-view-skeleton')
+    content.style.display = 'none'
 } 
 
 
@@ -55,12 +57,11 @@ function scrollBy(scrollLeft){
 }
 
 
+
+
+
 function movieView(event){   
-
-    
-
     return(
-       
             createElement('dialog', {class:'movie-view', open:'open'},
                 createElement('section', {class:'movie-view__container'}, 
                     createElement('div', {class:'movie-view-img__container'}, 
@@ -88,21 +89,56 @@ function movieView(event){
                     )
                 )
             )
-       
+    )
+}
+
+
+
+function skeleton(event){   
+
+    return(
+            createElement('dialog', {class:'movie-view movie-view-skeleton', open:'open'},
+                createElement('section', {class:'movie-view__container'}, 
+                    createElement('div', {class:'movie-view-img__container'}, 
+                        createElement('img', {class: 'movie-view__img'}),
+                        createElement('div', {class:'movie-view__img-background'})
+                    ),
+                    createElement('div', {class:'movie-view-view-detail__container'},
+                        createElement('div', null, 
+                            createElement('span', {class:'movie-view-detail__span'}),
+                        ),
+                        createElement('div', null, 
+                            createElement('h2', {class:'movie-view-detail__h2'}),
+                        ),
+                        createElement('div', null, 
+                            createElement('p', {class:'movie-view-detail__p'})
+                        )
+                    ),
+                    createElement('div', {class:'movie-view-genre__container'}, 
+                        createElement('ul', { class:'movie-view-genre__ul'} )
+                    ),
+                    createElement('div', {class:'movies-related__container'}, 
+                        createElement('button', {class:'movies-related-button__left', text:'<'}),
+                        createElement('button', {class:'movies-related-button__right', text:'>'}),
+                        createElement('ul', {class:'movies-related__ul'})
+                    )
+                )
+            )
     )
 }
 
 export function movieViewSection( nodeName = 'movieView' ){
     
     const collectionOfNodes = {
-        movieView: [movieView(), getDetails],
+        movieView: [movieView(), skeleton(), getDetails],
     }
 
-    const [ node, service ] = collectionOfNodes[nodeName]
+    const [ node, skeletonNode, service ] = collectionOfNodes[nodeName]
 
     return [
         node,
-        [service, getSimilarMovies]
+        [service, getSimilarMovies],
+        skeletonNode
     ]
 }
 
