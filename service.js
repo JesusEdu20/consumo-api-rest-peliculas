@@ -15,7 +15,7 @@ export async function sendTrendingMovies(rootElement, numPage = 1){
        
         const text = document.createTextNode(item.title)
         
-        const li = createElement('li', {class:'movie-container', onclick:()=>{changeLocation(`movie=${item.id}`)}}, img,
+        const li = createElement('li', {class:'movie-container movie-cart', onclick:()=>{changeLocation(`movie=${item.id}`)}}, img,
          createElement('div', null, 
             createElement('p', {class:'movie-title', text:item.title})
          ))
@@ -35,7 +35,6 @@ export async function sendGenreMovies(rootElement){
         const li = createElement('li', {class:'genre-movie-container'}, p)
         li.addEventListener("click", (e) => {
             changeLocation('genre', `${e.target.innerText}-${item.id}`)
-
         })
         rootElement.appendChild(li)
     }) 
@@ -54,7 +53,7 @@ export async function sendMoviesByGenre (id, rootElement){
         const img = document.createElement('img')
         img.src = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
         const id = getHashValue()
-        const li = createElement('li', {onclick:()=>{changeLocation(`movie=${movie.id}`)}}, 
+        const li = createElement('li', {onclick:()=>{changeLocation(`movie=${movie.id}`)}, class:'movie-cart'}, 
             createElement('div', null, 
                 createElement('p', {text:movie.title})
             )

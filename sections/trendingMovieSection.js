@@ -2,6 +2,12 @@ import { createElement } from "../manipulationDomMethods"
 import { changeLocation } from "../utils"
 import { sendTrendingMovies } from "../service"
 
+
+function scrollBy(scrollLeft){
+    const slider = document.querySelector('.trending-movie-list__ul')
+    slider.scrollBy({left: scrollLeft, behavior: 'smooth'})
+}
+
 //NODES
 ///////////////////////////////////////////////////////////////////////////////
 //HTML
@@ -10,12 +16,14 @@ const section = createElement('section', {
     class : 'trending-movie-section'},
     createElement('header', {class:'movie-header'}, 
         createElement('h1', {class:'trending-movie-title', text: 'TRENDING MOVIES'}),
-        createElement('button', {class: 'trending-movie-list-button__view-more', onclick: () => {changeLocation('trending'); console.log('click')} }, 
+        createElement('button', {class: 'trending-movie-list-button__view-more', onclick: () => {changeLocation('trending')} }, 
             createElement('p', {class:'trending-movie-list__p', text: 'Ver mas'})
         )
     ),
     createElement('div', {class: 'trending-movie-list-container'}, 
-        createElement('ul', { class:"trending-movie-list__ul", id:'app-trending-movie__list' }) 
+        createElement('ul', { class:"trending-movie-list__ul", id:'app-trending-movie__list' }),
+        createElement('button', {class:'movies-related-button__left', text:'<', onclick:()=>{scrollBy("-300")}}),
+        createElement('button', {class:'movies-related-button__right', text:'>', onclick:()=>{scrollBy("300")}}),              
     ),
 ) 
 ////////////////////////////////////////////////////////////////////////////////////////

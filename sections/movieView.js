@@ -26,7 +26,7 @@ async function getDetails(){
     span.innerHTML = `${starts} / 10 points`
 
     genres.forEach(element => {
-        ul.appendChild(createElement('li', {text: element.name}))
+        ul.appendChild(createElement('li', {text: element.name, class:'movie-cart'}))
     });
     
 }
@@ -39,7 +39,7 @@ async function getDetails(){
     
     data.results.map( movie => {
         ul.appendChild(
-            createElement('li', {onclick:()=>{changeLocation(`movie=${movie.id}`)}}, 
+            createElement('li', {onclick:()=>{changeLocation(`movie=${movie.id}`)}, class:'movie-cart'}, 
                 createElement('img', { src:`https://image.tmdb.org/t/p/w300${movie.poster_path}`})
             )
         )

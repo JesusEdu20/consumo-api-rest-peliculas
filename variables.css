@@ -1,0 +1,12 @@
+:root {
+    /* --principal-size-font: */
+    --principal-font-color: white;
+    /* movie carts preview */
+    --cart-movie-br : 8px;
+    --principal-font-size-h1 : 4rem;
+    --second-font-size-h2 : 1.8rem;
+
+    --font-size-small: 1rem;
+    --font-size-medium: 1.5rem;
+    --font-size-large: 2rem;
+}
