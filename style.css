@@ -175,7 +175,6 @@ html{
 
 .search-bar__ul{
   display: grid;
-  display: none;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   list-style: none;
   padding: 20px;
@@ -239,7 +238,7 @@ html{
   display: flex;
   flex-direction: column;
   padding: 0 20px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   /* background-color: blue; */
 }
 
@@ -467,6 +466,7 @@ h1{
     backdrop-filter: unset;
   }
   h2{
+    position: relative;
     overflow: hidden;
     width: 80%;
     height: 20px;
@@ -483,6 +483,7 @@ h1{
     animation: loading 1.5s infinite;
   }
   ul{
+    position: relative;
     overflow: hidden;
     height: 160px;
     border-radius: 8px;

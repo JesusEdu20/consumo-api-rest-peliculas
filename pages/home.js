@@ -13,7 +13,6 @@ export async function home (){
     const [ searchNode, searchService ] = searchModule.searchBarSection()
     const [ trendingNode, trendingService ] = trendModule.trendingMovieSection()
     const [ genreNode, genreService ] = genModule.genreMovieSection()
-    
     const container = createElement('div', { class : "trending" }, 
         searchNode,
         trendingNode,
