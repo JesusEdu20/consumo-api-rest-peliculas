@@ -1,4 +1,4 @@
-![preview](./assets/app-preview.png)
+![preview](https://raw.githubusercontent.com/JesusEdu20/consumo-api-rest-peliculas/master/assets/app-preview.PNG)
 
 # Movie API REST
 
