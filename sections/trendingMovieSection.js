@@ -17,7 +17,7 @@ const section = createElement('section', {
     createElement('header', {class:'movie-header'}, 
         createElement('h1', {class:'trending-movie-title', text: 'TRENDING MOVIES'}),
         createElement('button', {class: 'trending-movie-list-button__view-more', onclick: () => {changeLocation('trending')} }, 
-            createElement('p', {class:'trending-movie-list__p', text: 'Ver mas'})
+            createElement('p', {class:'trending-movie-list__p', text: 'View More'})
         )
     ),
     createElement('div', {class: 'trending-movie-list-container'}, 
