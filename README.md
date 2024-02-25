@@ -1,4 +1,5 @@
-![preview](`https://github.com/JesusEdu20/consumo-api-rest-peliculas/blob/master/assets/app-preview.PNG?raw=true`)
+![preview](https://github.com/JesusEdu20/consumo-api-rest-peliculas/blob/master/assets/app-preview.PNG?raw=true)
+
 # Movie API REST
 
 Este proyecto es una aplicación web que consume la API REST de The Movie Database (TMDb) utilizando solo Vanilla JavaScript, HTML y CSS. La aplicación utiliza el enrutamiento basado en hash (`window.location.hash`) para crear una Single Page Application (SPA) que permite navegar entre diferentes secciones de la página sin recargarla por completo.
