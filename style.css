@@ -450,6 +450,7 @@ h1{
   position: absolute;
   z-index: 2;
   width: 60%;
+  min-width: 320px;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
